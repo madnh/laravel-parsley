@@ -1,5 +1,5 @@
 {
-    "name": "happydemon/laravel-parsley",
+    "name": "madnh/laravel-parsley",
     "description": "Converts FormRequest rules to Parsley rules",
     "keywords": ["laravel", "laravel 5", "parsley", "parsleyjs", "html", "form", "collective"],
     "authors": [
@@ -10,10 +10,14 @@
         {
             "name": "Maxim 'happyDemon' Kerstens",
             "email": "maxim.kerstens@gmail.com"
+        },
+        {
+            "name": "MaDnh",
+            "email": "tackemadnh@gmail.com"
         }
     ],
     "replace": {
-        "idma/laravel-parsley":"0.*"
+        "happydemon/laravel-parsley":"0.*"
     },
     "require": {
         "php": ">=5.4.0",
@@ -23,7 +27,7 @@
     },
     "autoload": {
         "psr-0": {
-            "HappyDemon\\LaravelParsley": "src/"
+            "MaDnh\\LaravelParsley": "src/"
         }
     },
     "config": {

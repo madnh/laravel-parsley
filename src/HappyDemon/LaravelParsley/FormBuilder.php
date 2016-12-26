@@ -1,6 +1,6 @@
 <?php
 
-namespace HappyDemon\LaravelParsley;
+namespace MaDnh\LaravelParsley;
 
 use Collective\Html\FormBuilder as BaseFormBuilder;
 

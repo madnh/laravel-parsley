@@ -1,16 +1,14 @@
 window.ParsleyValidator
     .addValidator('after', function (value, requirement) {
         var params = requirement.split('|-|');
-        if(params.length == 1)
-        {
+        if (params.length == 1) {
             // is valid date?
             var timestamp = Date.parse(value),
                 minTs = Date.parse(params[0]);
 
             return isNaN(timestamp) ? false : timestamp > minTs;
         }
-        else
-        {
+        else {
             // A format was given, use momentJS
             var timestamp = moment(value, params[1]);
             var minTs = moment(params[0], params[1]);
@@ -24,16 +22,14 @@ window.ParsleyValidator
 window.ParsleyValidator
     .addValidator('before', function (value, requirement) {
         var params = requirement.split('|-|');
-        if(params.length == 1)
-        {
+        if (params.length == 1) {
             // is valid date?
             var timestamp = Date.parse(value),
                 maxTs = Date.parse(params[0]);
 
             return isNaN(timestamp) ? false : timestamp < maxTs;
         }
-        else
-        {
+        else {
             // A format was given, use momentJS
             var timestamp = moment(value, params[1]);
             var maxTs = moment(params[0], params[1]);
@@ -46,7 +42,7 @@ window.ParsleyValidator
     .addMessage('en', 'before', 'This date should be before %s');
 window.ParsleyValidator
     .addValidator('formatDate', function (value, requirement) {
-        var d = moment(value,requirement);
+        var d = moment(value, requirement);
 
         return (d == null || !d.isValid());
     }, 32)

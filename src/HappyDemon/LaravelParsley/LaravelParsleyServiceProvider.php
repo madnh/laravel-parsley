@@ -1,29 +1,28 @@
 <?php
 
-namespace HappyDemon\LaravelParsley;
+namespace MaDnh\LaravelParsley;
 
 use Collective\Html\HtmlServiceProvider;
 
 class LaravelParsleyServiceProvider extends HtmlServiceProvider
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function register()
-	{
-		parent::register();
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function register()
+    {
+        parent::register();
+    }
 
-	/**
-	 * {@inheritdoc}
-	 */
-	protected function registerFormBuilder()
-	{
-		$this->app->bindShared('form', function($app)
-		{
-			$form = new FormBuilder($app['html'], $app['url'], $app['session.store']->getToken());
+    /**
+     * {@inheritdoc}
+     */
+    protected function registerFormBuilder()
+    {
+        $this->app->singleton('form', function ($app) {
+            $form = new FormBuilder($app['html'], $app['url'], $app['view'], $app['session.store']->getToken());
 
-			return $form->setSessionStore($app['session.store']);
-		});
-	}
+            return $form->setSessionStore($app['session.store']);
+        });
+    }
 }

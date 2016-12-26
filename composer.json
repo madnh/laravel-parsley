@@ -16,9 +16,6 @@
             "email": "tackemadnh@gmail.com"
         }
     ],
-    "replace": {
-        "happydemon/laravel-parsley":"0.*"
-    },
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "~5.0",

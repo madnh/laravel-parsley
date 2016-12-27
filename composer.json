@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MaDnh\\LaravelParsley": "src/"
+            "MaDnh\\LaravelParsley\\": "src/"
         }
     },
     "config": {

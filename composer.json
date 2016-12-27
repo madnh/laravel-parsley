@@ -23,7 +23,7 @@
         "illuminate/translation" : "~5.0"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "MaDnh\\LaravelParsley": "src/"
         }
     },

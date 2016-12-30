@@ -3,6 +3,7 @@
 namespace MaDnh\LaravelParsley;
 
 use Illuminate\Translation\Translator;
+use Illuminate\Foundation\Http\FormRequest;
 
 class ParsleyConverter {
     use \Illuminate\Console\AppNamespaceDetectorTrait;
@@ -15,6 +16,10 @@ class ParsleyConverter {
      */
     protected $translator       = null;
 
+    /**
+     * ParsleyConverter constructor.
+     * @param null|string|FormRequest $formRequest
+     */
     public function __construct($formRequest=null)
     {
         if($formRequest != null && !is_object($formRequest))
@@ -25,9 +30,10 @@ class ParsleyConverter {
 
         if ($formRequest && method_exists($formRequest, 'rules')) {
             $this->rules = $formRequest->rules();
+            $this->customAttributes = $formRequest->attributes();
 
             if (method_exists($formRequest, 'customAttributes')) {
-                $this->customAttributes = $formRequest->customAttributes();
+                $this->customAttributes = array_merge($this->customAttributes, $formRequest->customAttributes());
             }
 
             $this->translator = app()['translator'];

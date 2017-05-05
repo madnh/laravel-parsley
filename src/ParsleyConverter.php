@@ -6,7 +6,7 @@ use Illuminate\Translation\Translator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ParsleyConverter {
-    use \Illuminate\Console\AppNamespaceDetectorTrait;
+    use \Illuminate\Console\DetectsApplicationNamespace;
 
     protected $rules            = [];
     protected $customAttributes = [];

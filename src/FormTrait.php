@@ -26,8 +26,7 @@ trait FormTrait
      */
     public function input($type, $name, $value = null, $options = [])
     {
-        if ($this->parsley != null)
-        {
+        if ($this->parsley != null) {
             $options = array_merge($options, $this->parsley->getFieldRules($name));
         }
 
@@ -39,21 +38,19 @@ trait FormTrait
      */
     public function textarea($name, $value = null, $options = [])
     {
-        if ($this->parsley != null)
-        {
+        if ($this->parsley != null) {
             $options = array_merge($options, $this->parsley->getFieldRules($name));
         }
 
         return parent::textarea($name, $value, $options);
     }
 
-    public function select($name, $list = [], $selected = null, $options = [])
+    public function select($name, $list = [], $selected = null, array $selectAttributes = [], array $optionsAttributes = [])
     {
-        if ($this->parsley != null)
-        {
-            $options = array_merge($options, $this->parsley->getFieldRules($name));
+        if ($this->parsley != null) {
+            $selectAttributes = array_merge($selectAttributes, $this->parsley->getFieldRules($name));
         }
 
-        return parent::select($name, $list, $selected, $options);
+        return parent::select($name, $list, $selected, $selectAttributes, $optionsAttributes);
     }
 }
